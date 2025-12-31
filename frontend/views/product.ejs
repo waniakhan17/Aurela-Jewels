@@ -1,0 +1,131 @@
+<%- include('partials/header',{ page:'Products', title:title }) %>
+    <main>
+
+        <section class="filter-section">
+            <div style="display: flex;justify-content: space-evenly;">
+
+                <!-- Filter Bar -->
+                <div class="filters">
+                    <button class="filter-btn " data-query="all">All</button>
+                    <button class="filter-btn" data-query="rings">Rings</button>
+                    <button class="filter-btn" data-query="necklaces">Necklaces</button>
+                    <button class="filter-btn" data-query="earrings">Earrings</button>
+                    <button class="filter-btn" data-query="bracelets">Bracelets</button>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInp" placeholder="Search products...">
+
+                </div>
+            </div>
+        </section>
+        <section class="product-listings">
+            <% products.forEach(product=> { %>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="http://localhost:3000/JewelryImages/<%= product.image %>" alt="<%= product.name %>"
+                            class="product-img" />
+                    </div>
+
+                    <div class="product-details">
+                        <div class="price">
+                            <div class="price-info">
+                                <span class="current-price">Rs <%= product.price %></span>
+                            </div>
+
+                        </div>
+
+                        <p class="product-title">
+                            <%= product.name %>
+                        </p>
+                        <a href="/product/<%= product._id %>">View Details</a>
+
+                    </div>
+                </div>
+                <% }) %>
+        </section>
+        <div aria-label="Page navigation" class="pagination-sec">
+            <ul class="pagination">
+                <!-- First Page -->
+                <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                    <% if(currentPage===1) { %>
+                        <span class="page-link">&laquo;</span>
+                        <% } else { %>
+                            <a class="page-link" href="/products?page=1">&laquo;</a>
+                            <% } %>
+                </li>
+
+                <!-- Previous Page -->
+                <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                    <% if(currentPage===1) { %>
+                        <span class="page-link">&lsaquo;</span>
+                        <% } else { %>
+                            <a class="page-link" href="/products?page=<%= currentPage - 1 %>">&lsaquo;</a>
+                            <% } %>
+                </li>
+
+                <!-- Page Numbers -->
+                <% for(let i=1; i <=totalPages; i++) { %>
+                    <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                        <% if(currentPage===i) { %>
+                            <span class="page-link">
+                                <%= i %>
+                            </span>
+                            <% } else { %>
+                                <a class="page-link" href="/products?page=<%= i %>">
+                                    <%= i %>
+                                </a>
+                                <% } %>
+                    </li>
+                    <% } %>
+
+                        <!-- Next Page -->
+                        <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                            <% if(currentPage===totalPages) { %>
+                                <span class="page-link">&rsaquo;</span>
+                                <% } else { %>
+                                    <a class="page-link" href="/products?page=<%= currentPage + 1 %>">&rsaquo;</a>
+                                    <% } %>
+                        </li>
+
+                        <!-- Last Page -->
+                        <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                            <% if(currentPage===totalPages) { %>
+                                <span class="page-link">&raquo;</span>
+                                <% } else { %>
+                                    <a class="page-link" href="/products?page=<%= totalPages %>">&raquo;</a>
+                                    <% } %>
+                        </li>
+            </ul>
+        </div>
+
+
+
+    </main>
+
+    <%- include('partials/footer')%>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+    const searchInp = document.getElementById("searchInp");
+    const searchIcon = document.querySelector(".fa-magnifying-glass");
+
+    // Function banayein taake Enter aur Click dono pe use ho sake
+    const handleSearch = () => {
+        const query = searchInp.value.trim();
+        const url = query 
+            ? `/products/search?search=${encodeURIComponent(query)}` 
+            : `/products/search`;
+        
+        window.location.href = url;
+    };
+
+    // 1. Enter key press check
+    searchInp.addEventListener('keypress', (e) => {
+        if (e.key === "Enter") {
+            handleSearch();
+        }
+    });
+});
+    </script>
+    

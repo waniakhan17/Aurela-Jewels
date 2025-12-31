@@ -1,0 +1,116 @@
+<%- include('partials/checkHead',{ page:'Checkout', title:title }) %>
+
+
+  <div class="checkout-page">
+      <div class="container">
+        <!-- Order Summary Section -->
+        <div class="order-summary-section" id="orderSummarySection">
+            <div class="summary-header">
+                <div class="header-icon">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <h2>Your Order Summary</h2>
+                <p class="subtitle">Review your items before checkout</p>
+            </div>
+            
+            <div class="summary-content">
+                <div class="summary-items" id="summaryItems">
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading your cart items...</p>
+                    </div>
+                </div>
+                
+                <div class="summary-calculation">
+                    <div class="calculation-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">Rs. 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span>Discount</span>
+                        <span id="discount">Rs. 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span>Delivery Charges</span>
+                        <span>Rs. 300</span>
+                    </div>
+                    <div class="calculation-row total">
+                        <span><strong>Total Amount</strong></span>
+                        <span><strong id="totalAmount">Rs. 0</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-section" id="formSection">
+            <div class="form-header">
+                <div class="header-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h2>Complete Your Order</h2>
+                <p class="subtitle">Please fill in your details below</p>
+            </div>
+            
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="Enter your phone number (03001234567)" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="textarea-with-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <textarea id="address" placeholder="Enter your complete shipping address" required></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check-circle"></i>
+                    Confirm Order
+                </button>
+                
+                <div class="note">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Your order will be delivered via Cash on Delivery</span>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Success Section -->
+        <div class="success-section" id="successSection">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h2>Thank You for Shopping!</h2>
+            <p class="success-message">Your order has been received successfully.</p>
+            <p class="success-note">We will contact you shortly for delivery details.</p>
+            
+            <div class="success-footer">
+                <i class="fas fa-clock"></i>
+                <span>Delivery within 3-5 working days</span>
+            </div>
+            <div class="continue-shopping">
+                <button onclick="window.location.href='/products'">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+  </div>
+ <%- include('partials/checkFooter')%>

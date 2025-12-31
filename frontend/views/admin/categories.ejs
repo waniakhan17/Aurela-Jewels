@@ -1,0 +1,20 @@
+<%- include('../partials/checkHead', { page: 'Categories', title: title }) %>
+
+<main class="admin-main">
+    <h1>Categories</h1>
+
+    <div class="admin-form">
+        <input id="categoryName" name="name" placeholder="Category name" required>
+        <button onclick="createCategory()">Add</button>
+    </div>
+
+    <ul class="admin-list">
+        <% categories.forEach(c => { %>
+            <li style="display: flex; justify-content: space-between; margin-bottom: 10px; width: 300px;">
+                <span><%= c.name %></span>
+            </li>
+        <% }) %>
+    </ul>
+</main>
+
+<%- include('../partials/checkFooter') %>

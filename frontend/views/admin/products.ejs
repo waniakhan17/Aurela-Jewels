@@ -1,0 +1,61 @@
+<%- include('../partials/checkHead', { page: 'Products' , title: title }) %>
+
+  <main class="admin-main">
+    <h1>Products</h1>
+    <div class="admin-form">
+      <input id="prodName" placeholder="Name" required>
+      <input id="prodPrice" placeholder="Price" type="number" required>
+      <select id="prodCategory">
+        <% categories.forEach(c=> { %>
+          <option value="<%= c.name %>">
+            <%= c.name %>
+          </option>
+          <% }) %>
+      </select>
+      <input id="prodQuantity" placeholder="Quantity" type="number" required>
+      <textarea id="prodDescription" placeholder="Description" required></textarea>
+      <input type="file" id="prodImage" name="image" accept="image/*">
+      <button onclick="createProduct()">Add</button>
+    </div>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(p=> { %>
+          <tr>
+            <td>
+              <img src="http://localhost:3000/JewelryImages/<%= p.image %>" alt="productImage" width="60">
+            </td>
+            <td>
+              <%= p.name %>
+            </td>
+            <td>
+              <%= p.category.name %>
+            </td>
+            <td>Rs <%= p.price %>
+            </td>
+            <td><%= p.quantity %>
+            </td>
+            <td> <%= p.description %>
+            </td>
+            <td>
+              <button class="danger-btn" onclick=" deleteProduct('<%= p._id %>')">Delete</button>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </main>
+
+    <%- include('../partials/checkFooter') %>

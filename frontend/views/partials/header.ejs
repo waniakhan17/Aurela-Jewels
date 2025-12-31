@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= page %> | <%= title %>
+    </title>
+
+    <!-- Styles -->
+    <link rel="website icon" type="png" href="/images/logo.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="fade-in">
+        <nav id="nav">
+            <ul>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="/about">About</a></li>
+
+            </ul>
+
+            <div class="nav-logo">
+                <span class="image">
+                    <img src="/images/logo.png" alt="Auréla Logo">
+                </span>
+            </div>
+
+            <ul>
+                <li class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass" id="searchIcon" style="cursor: pointer; color: black;"></i>
+
+                    <form action="/products/search" method="GET" id="searchForm">
+                        <input type="text" name="search" placeholder="Search products..." id="searchInput">
+                        <i class="fa-solid fa-xmark" id="closeSearch" style="cursor: pointer; margin-left: 10px;"></i>
+                    </form>
+                </li>
+                <li><a href="/cart"> <i class="fa-solid fa-cart-shopping cart"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-user"></i></a></li>
+
+            </ul>
+        </nav>
+
+    </header>

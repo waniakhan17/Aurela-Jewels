@@ -1,0 +1,235 @@
+<%- include('partials/header',{ page:'Home', title:title }) %>
+
+    <main>
+        <div class="banner fade-in">
+            <div class="hero-content">
+                <h1>Crafted for the Moments That Matter</h1>
+                <p class="para">Handcrafted with precision and love, our collection celebrates simplicity.
+                    Because true beauty doesn’t need to shout — it simply shines.</p>
+                <div class="buttons">
+                    <button class="btn2" onclick="window.location.href='/products'">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="trust-badges">
+            <div class="badge">
+                <div class="badge-icon">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </div>
+                <h4>100%<br>Original</h4>
+                <p>Eros in cursus</p>
+            </div>
+
+            <div class="badge">
+                <div class="badge-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h4>Weeklong<br>Warranty</h4>
+                <p>Eu turpis egestas</p>
+            </div>
+
+            <div class="badge">
+                <div class="badge-icon">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
+                <h4>Free<br>Shipping</h4>
+                <p>pharetra magna</p>
+            </div>
+
+            <div class="badge">
+                <div class="badge-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h4>BIS<br>Certified</h4>
+                <p>A scelerisque<br>purus</p>
+            </div>
+        </section>
+
+
+        <section class="featured-sec fade-in">
+            <h2>Featured Products</h2>
+            <p id="tagline">Discover our most loved and timeless designs.</p>
+            <div class="slider-wrapper">
+                <div class="feature-cont slider-track">
+                    <% products.forEach(product=> { %>
+                        <div class="box" onclick="window.location.href='/products'">
+                            <div class="image" onclick="window.location.href='/products'">
+                                <img src="http://localhost:3000/JewelryImages/<%= product.image %>"
+                                    alt="<%= product.name %>" />
+                            </div>
+
+                            <p>
+                                <%= product.name %>
+                            </p>
+                            <p class="price" style="font-family: 'Times New Roman', Times, serif;">Rs <%= product.price %>
+                            </p>
+                        </div>
+                        <% }) %>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="offers">
+            <div class="videoo scroll-animate">
+                <video src="/images/video.mp4" autoplay loop muted></video>
+            </div>
+            <div class="text">
+                <p>Special Offers</p>
+                <h2>JEWELLERY BOX</h2>
+                <h3>ALL IN ONE BOX</h3>
+                <button onclick="window.location.href='/products'">CHECK NOW</button>
+            </div>
+        </section>
+
+        <section class="new-arrivals fade-in">
+            <h2>New Arrivals</h2>
+            <div class="products-grid">
+                <% if (products && products.length> 0) { %>
+                    <% products.slice(10, 14).forEach(product=> { %>
+                        <div class="product-item" onclick="window.location.href='/products'">
+                            <img src="http://localhost:3000/JewelryImages/<%= product.image %>"
+                                class="arr_image" alt="<%= product.name %>" onclick="window.location.href='/product'">
+                            <h3>
+                                <%= product.name %>
+                            </h3>
+                            <p class="price">Rs <%= product.price %>
+                            </p>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <p>No products available ✨</p>
+                                <% } %>
+            </div>
+        </section>
+
+
+        <section class="customer-section fade-in">
+            <h2>Our Customers Reviews</h2>
+            <div class="slider-wrapper">
+                <div class="customers-container slider-track">
+                    <div class="box">
+                        <img src="/images/customer/c1.jpg" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <img src="/images/customer/c7.png" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <img src="/images/customer/c2.jpg" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="/images/customer/c3.png" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="/images/customer/c4.png" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="/images/customer/c5.png" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="/images/customer/c6.png" alt="">
+                        <h2>Falak Alamgir</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat saepe accusantium
+                            corporis
+                            unde ratione aut nihil quia tempore. Accusantium, vero! Itaque sint natus placeat
+                            praesentium
+                            pariatur incidunt vero? Minus.</p>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <%- include('partials/footer')%>

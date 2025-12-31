@@ -1,0 +1,57 @@
+<%- include('partials/header',{ page:'Details',title:title }) %>
+
+    <main>
+        <section class="details-sec">
+            <div style="display: flex;
+            justify-content: center;
+            align-items: center; gap:30px;
+            padding: 30px 50px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+                border-radius: 10px ;">
+                <div class="box">
+                    <div class="image">
+                        <img src="http://localhost:3000/JewelryImages/<%= product.image %>"
+                            alt="<%= product.name %>" />
+                    </div>
+                </div>
+
+                <div class="details">
+                    <h4>
+                        <%= product.name %>
+                    </h4>
+                    <h2>
+                        $<%= product.price %>
+                    </h2>
+                    <form class="addCart-form">
+                        <input type="hidden" name="productId" value="<%= product._id %>">
+                        <div class="quantity-section">
+                            <button type="button" onclick="decreaseQty(this)">−</button>
+                            <input type="number" class="qty-input" value="1" min="1" name="quantity" readonly>
+                            <button type="button" onclick="increaseQty(this)">+</button>
+                        </div>
+                        <button type="submit" class="cartBtn">Add to Cart</button>
+                    </form>
+
+                    <h4 style="margin-top: 10px;">Description</h4>
+                    <span>
+                        <%= product.description %>
+                    </span>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-sec">
+            <h2>Featured Products</h2>
+            <p id="tagline">Discover our most loved and timeless designs.</p>
+            <div class="slider-wrapper">
+                <div class="feature-cont slider-track">
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <%- include('partials/footer')%>

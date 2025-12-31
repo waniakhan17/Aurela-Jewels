@@ -1,0 +1,66 @@
+<footer id="footer">
+    
+    
+    
+    
+    <span class="image">
+        <img src="/images/logo.png" alt="Auréla Logo">
+    </span>
+
+    <span class="links">
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="/about">About</a></li>
+
+        </ul>
+    </span>
+
+    <span class="contact-info">
+        <p><strong>Contact Us:</strong></p>
+        <p>Email: <a href="mailto:info@aurela.com">info@aurela.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <p>Address: <span>123 Fashion Street, London, UK</span></p>
+    </span>
+
+    <span class="social-links">
+        <p>Follow Us on</p>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+    </span>
+
+    <span class="newsletter">
+    <p><strong>Subscribe to Our Newsletter</strong></p>
+    <form id="subscribeForm">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</span>
+
+
+    <span class="copyright">
+        <p>&copy; 2025 Auréla. All Rights Reserved.</p>
+    </span>
+</footer>
+
+<script>
+document.getElementById("subscribeForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // stop page reload
+
+    alert("Thank you for subscribing! 🎉");
+
+    this.reset(); // clear email field
+});
+</script>
+<script src="/js/home.js"></script>
+<script src="/js/product.js"></script>
+<script src="/js/details.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/checkout.js"></script>
+
+</body>
+
+</html>

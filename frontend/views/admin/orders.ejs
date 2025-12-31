@@ -1,0 +1,59 @@
+<%- include('../partials/checkHead', { page: 'Orders' , title: title }) %>
+
+    <main class="admin-main">
+        <h1>Orders</h1>
+
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Contact</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% orders.forEach(o=> { %>
+                    <tr>
+                        <td>
+                            <strong>
+                                <%= o.name %>
+                            </strong><br>
+                            <small>
+                                <%= o.email %>
+                            </small>
+                        </td>
+                        <td>
+                            <%= o.phone %>
+                        </td>
+                        <td>
+                            <% o.products.forEach(p=> { %>
+                                <%= p.quantity %>x <%= p.name %><br>
+                                        <% }) %>
+                        </td>
+                        <td>$ <%= o.totalAmount %>
+                        </td>
+                        <td>
+                            <select onchange="handleStatusUpdate('<%= o._id %>', this.value)">
+                                <option value="Pending" <%=o.status==='Pending' ? 'selected' : '' %>>Pending</option>
+                                <option value="Shipped" <%=o.status==='Shipped' ? 'selected' : '' %>>Shipped</option>
+                                <option value="Delivered" <%=o.status==='Delivered' ? 'selected' : '' %>>Delivered
+                                </option>
+                                <option value="Cancelled" <%=o.status==='Cancelled' ? 'selected' : '' %>>Cancelled
+                                </option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <button class="danger-btn" onclick="handleDeleteOrder('<%= o._id %>')">Delete</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </main>
+
+    <%- include('../partials/checkFooter') %>
